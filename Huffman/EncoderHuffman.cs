@@ -71,15 +71,17 @@ namespace Huffman
         private static void CreateTable(List<double> p)
         {
             List<int> indexes = new List<int>();
-
+            
             while (p.Count != 2)
             {
                 p[p.Count - 2] += p[p.Count - 1];
+                double value = p[p.Count - 2];
                 p.RemoveAt(p.Count - 1);
                 p.Sort();
                 p.Reverse();
                 
-                indexes.Add(p.IndexOf(p[p.Count - 2]));
+                
+                indexes.Add(p.IndexOf(value));
             }
 
             indexes.Reverse();
